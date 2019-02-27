@@ -1,17 +1,12 @@
 const Discord = require('discord.js');
-const superagent = require("superagent");
 const Client = new Discord.Client();
 const OwnerID = "130515926117253122";
-
-const prefix = "!"
-
-
+const prefix  "!"
 
 Client.on("ready", () => {
 	console.log("online");
 	Client.user.setPresence({ game: { name: `Hello world`, type: 0} });
 });
-
 
 Client.on("message", async (message) => {
 	if (message.author.bot) return;
