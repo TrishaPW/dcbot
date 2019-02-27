@@ -1,29 +1,21 @@
 const Discord = require('discord.js');
-const Client = new Discord.Client();
-const prefix  "!"
+const client = new Discord.Client();
 
-Client.on("ready", () => {
-	console.log("online");
+client.on('ready', () => {
+    console.log('I am ready!');
 });
 
-Client.on("message", async (message) =>{
-	let command = message.content.split(" ")[0];
-	command = command.slice(prefix.length);
-	
-	let args = message.content.split(" ").slice(1);
-	
-	if (command === "ping") {
-		message.channel.send(`Pong! Time took: ${Date.now() - message.createdTimestamp} ms`);
-	} else
-
-	if (command === "yaz") {
-		message.delete()
-        const embed = new Discord.RichEmbed()
-		.setColor(0x954D23)
-		.setDescription(message.author.username + " says: " + args.join(" "));
-		message.channel.send({embed})
-	} else
-
+client.on('message', message => {
+    if (message.content === 'ping') {
+    	message.channel.send('PONG!');
+  	}
 });
 
-Client.login(process.env.BOT_TOKEN);
+client.on('message', message => {
+    if (message.content === 'bing') {
+    	message.reply('BONG!');
+  	}
+});
+
+// THIS  MUST  BE  THIS  WAY
+client.login(process.env.BOT_TOKEN);
