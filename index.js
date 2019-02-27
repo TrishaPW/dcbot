@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const Client = new Discord.Client();
-const OwnerID = "130515926117253122";
 const prefix  "!"
 
 Client.on("ready", () => {
@@ -26,4 +25,5 @@ Client.on("message", async (message) =>{
 	} else
 
 });
+
 Client.login(process.env.BOT_TOKEN);
