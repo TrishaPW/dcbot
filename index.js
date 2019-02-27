@@ -7,11 +7,9 @@ client.on('ready', () => {
 
 client.on('message', message => {
     if (message.content === '!yaz') {
-    	message.delete()
-        const embed = new Discord.RichEmbed()
-		.setColor(0x954D23)
-		.setDescription(message.author.username + " says: " + args.join(" "));
-		message.channel.send({embed})
+    	const sayMessage = args.join(" ");
+    	message.delete().catch();
+    	message.channel.send(sayMessage);
   	}
 });
 
