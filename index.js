@@ -5,13 +5,9 @@ const prefix  "!"
 
 Client.on("ready", () => {
 	console.log("online");
-	Client.user.setPresence({ game: { name: `Hello world`, type: 0} });
 });
 
-Client.on("message", async (message) => {
-	if (message.author.bot) return;
-	if (!message.content.startsWith(prefix)) return;
-	
+Client.on("message", async (message) =>{
 	let command = message.content.split(" ")[0];
 	command = command.slice(prefix.length);
 	
