@@ -1,8 +1,7 @@
 {
-  "name": "RetroRoleplay",
-  "description": "www.retro-rp.com",
+  "name": "19RP",
+  "description": "19",
   "version": "1.0.0",
-  "prefix": "!",
   "main": "index.js",
   "scripts": {
     "start": "node bot.js"
