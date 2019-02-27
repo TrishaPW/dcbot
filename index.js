@@ -6,11 +6,10 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-    if (message.content === '!yaz') {
-    	const sayMessage = args.join(" ");
-    	message.delete().catch();
-    	message.channel.send(sayMessage);
-  	}
+    if (message.startsWith("yaz") == true) {
+        var newMessage = message.replace("yaz ", "");
+        message.channel.send(message:newMessage)
+    }
 });
 
 client.on('message', message => {
