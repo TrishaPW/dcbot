@@ -7,8 +7,12 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-    if (message.content === 'ping') {
-    	message.channel.send('PONG!');
+    if (message.content === '!yaz')
+    {
+        if(!message.member.hasPermission("ADMINISTRATOR")) return;
+        const sayMessage = args.join(" ");
+        message.delete().catch();
+        message.channel.send(sayMessage);
   	}
 });
 client.login(process.env.BOT_TOKEN);
