@@ -11,4 +11,4 @@ client.on('message', message => {
     	message.channel.send('PONG!');
   	}
 });
-bot.login(process.env.BOT_TOKEN);
+client.login(process.env.BOT_TOKEN);
