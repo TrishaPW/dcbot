@@ -9,7 +9,6 @@ client.on('ready', () => {
 client.on('message', message => {
     if (message.content === '!yaz')
     {
-        if(!message.member.hasPermission("ADMINISTRATOR")) return;
         const sayMessage = args.join(" ");
         message.delete().catch();
         message.channel.send(sayMessage);
