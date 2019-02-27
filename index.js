@@ -1,17 +1,38 @@
-const botconfig = require("./package.json");
-const Discord = require("discord.js");
-const client = new Discord.Client();
+const Discord = require('discord.js');
+const superagent = require("superagent");
+const Client = new Discord.Client();
+const OwnerID = "130515926117253122";
 
-client.on('ready', () => {
-    console.log('Bot aktif edildi.');
+const prefix = "!"
+
+
+
+Client.on("ready", () => {
+	console.log("online");
+	Client.user.setPresence({ game: { name: `Hello world`, type: 0} });
 });
 
-client.on('message', message => {
-    if (message.content === '!yaz')
-    {
-        const sayMessage = args.join(" ");
-        message.delete().catch();
-        message.channel.send(sayMessage);
-  	}
+
+Client.on("message", async (message) => {
+	if (message.author.bot) return;
+	if (!message.content.startsWith(prefix)) return;
+	
+	let command = message.content.split(" ")[0];
+	command = command.slice(prefix.length);
+	
+	let args = message.content.split(" ").slice(1);
+	
+	if (command === "ping") {
+		message.channel.send(`Pong! Time took: ${Date.now() - message.createdTimestamp} ms`);
+	} else
+
+	if (command === "yaz") {
+		message.delete()
+        const embed = new Discord.RichEmbed()
+		.setColor(0x954D23)
+		.setDescription(message.author.username + " says: " + args.join(" "));
+		message.channel.send({embed})
+	} else
+
 });
-client.login(process.env.BOT_TOKEN);
+Client.login(process.env.BOT_TOKEN);
