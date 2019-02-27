@@ -1,22 +1,14 @@
 const botconfig = require("./package.json");
 const Discord = require("discord.js");
+const client = new Discord.Client();
 
-const bot = new Discord.Client({disableEveryone: true});
-
-bot.on("ready", async () => {
-  console.log(`${bot.user.username} aktif edildi!`);
-
-  bot.user.setActivity("19ROLEPLAY", {type: "WATCHING"});
+client.on('ready', () => {
+    console.log('Bot aktif edildi.');
 });
 
-bot.on('message', message => {
-    if (message.content === 'yaz')
-    {
-    	if(!message.member.hasPermission("ADMINISTRATOR")) return;
-      const sayMessage = args.join(" ");
-      message.delete().catch();
-      message.channel.send(sayMessage);
+client.on('message', message => {
+    if (message.content === 'ping') {
+    	message.channel.send('PONG!');
   	}
 });
-
 bot.login(process.env.BOT_TOKEN);
